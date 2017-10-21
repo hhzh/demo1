@@ -1,2 +1,16 @@
 # demo1
-study react
+
+npm init
+npm install --save react react-dom babelify babel-preset-react
+npm install babel-preset-es2015 --save
+
+npm install -g webpack
+npm install -g webpack-dev-server
+
+npm install webpack --save
+npm install webpack-dev-server --save
+
+webpack
+webpack --watch
+webpack-dev-server
+webpack-dev-server --contentbase src --inline --hot
