@@ -13,4 +13,4 @@ npm install webpack-dev-server --save
 webpack
 webpack --watch
 webpack-dev-server
-webpack-dev-server --contentbase src --inline --hot
+webpack-dev-server --inline --hot
