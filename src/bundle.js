@@ -21373,7 +21373,7 @@ var ComponentBody = function (_React$Component) {
                 _react2.default.createElement(
                     'h2',
                     null,
-                    '\u9875\u9762\u7684\u4E3B\u9898\u5185\u5BB911'
+                    '\u9875\u9762\u7684\u4E3B\u9898\u5185\u5BB9'
                 )
             );
         }
