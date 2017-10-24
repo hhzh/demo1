@@ -14,4 +14,6 @@ webpack
 webpack --watch
 webpack-dev-server
 webpack-dev-server --inline --hot
+webpack-dev-server --env development
+npm install babel-plugin-react-html-attrs
 
