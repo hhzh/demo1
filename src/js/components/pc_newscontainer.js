@@ -18,10 +18,10 @@ export default class PCNewsContainer extends React.Component {
 		return (
 			<div>
 				<Row>
-					<Col span={2}></Col>
+					<Col span={2}/>
 					<Col span={20} class="container">
-						<div class="leftContainer">
-							<div class="carousel">
+						<div className="leftContainer">
+							<div className="carousel">
 								<Carousel {...settings}>
 									<div><img src="./src/images/carousel_1.jpg"/></div>
 									<div><img src="./src/images/carousel_2.jpg"/></div>
@@ -44,7 +44,7 @@ export default class PCNewsContainer extends React.Component {
 							<PCNewsImageBlock count={16} type="yule" width="100%" cartTitle="娱乐新闻" imageWidth="132px"/>
 						</div>
 					</Col>
-					<Col span={2}></Col>
+					<Col span={2}/>
 				</Row>
 			</div>
 		);
