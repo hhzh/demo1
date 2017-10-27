@@ -1,6 +1,6 @@
 import React from 'react';
 import {Menu, Icon, Row, Col, Tabs, message, Form, Input, Button, Checkbox, Modal} from 'antd';
-import {Router, Route, Link, browserHistory} from 'react-router';
+import {BrowserRouter as Router, Route, Link, NavLink} from 'react-router-dom';
 
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
@@ -19,6 +19,13 @@ class PCHeader extends React.Component {
             userNickName: '',
             userid: 0
         };
+    };
+
+    componentWillMount(){
+        if (localStorage.userid!='') {
+            this.setState({hasLogined:true});
+            this.setState({userNickName:localStorage.userNickName,userid:localStorage.userid});
+        }
     };
 
     setModalVisible(value) {
@@ -66,17 +73,27 @@ class PCHeader extends React.Component {
         }
     };
 
+    logout(){
+        localStorage.userid= '';
+        localStorage.userNickName = '';
+        this.setState({hasLogined:false});
+    };
+
     render() {
         let {getFieldDecorator} = this.props.form;
         const userShow = this.state.hasLogined
             ? <Menu.Item key="logout" class="register">
                 <Button type="primary" htmlType="button">{this.state.userNickName}</Button>
                 &nbsp;&nbsp;
-                <Link target="_blank">
-                    <Button type="dashed" htmlType="button">个人中心</Button>
-                </Link>
+                <Router>
+                    <Route>
+                        <Link to="/" target="_blank">
+                            <Button type="dashed" htmlType="button">个人中心</Button>
+                        </Link>
+                    </Route>
+                </Router>
                 &nbsp;&nbsp;
-                <Button type="ghost" htmlType="button">退出</Button>
+                <Button type="ghost" htmlType="button" onClick={this.logout.bind(this)}>退出</Button>
             </Menu.Item>
             : <Menu.Item key="register" class="register">
                 <Icon type="appstore"/>注册/登录

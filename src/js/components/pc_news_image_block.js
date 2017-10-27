@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card} from 'antd';
-import {Router, Route, Link, browserHistory} from 'react-router';
+import {BrowserRouter as Router, Route, Link, NavLink} from 'react-router-dom';
 
 export default class PCNewsImageBlock extends React.Component {
     constructor() {
@@ -34,13 +34,19 @@ export default class PCNewsImageBlock extends React.Component {
         const newsList = news.length
             ? news.map((newsItem, index) => (
                 <div key={index} className="imageblock">
-                        <div className="custom-image">
-                            <img alt="" style={styleImage} src={newsItem.thumbnail_pic_s}/>
-                        </div>
-                        <div className="custom-card">
-                            <h3 style={styeH3}>{newsItem.title}</h3>
-                            <p>{newsItem.author_name}</p>
-                        </div>
+                    <Router>
+                        <Route exact path="/">
+                            <Link to={`details/${newsItem.uniquekey}`} target="_blank">
+                                <div className="custom-image">
+                                    <img alt="" style={styleImage} src={newsItem.thumbnail_pic_s}/>
+                                </div>
+                                <div className="custom-card">
+                                    <h3 style={styeH3}>{newsItem.title}</h3>
+                                    <p>{newsItem.author_name}</p>
+                                </div>
+                            </Link>
+                        </Route>
+                    </Router>
                 </div>
             ))
             : '没有加载到任何新闻';
